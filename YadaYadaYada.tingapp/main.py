@@ -48,9 +48,7 @@ def loadurl():
     query()
 
 def query():
-    state['img'] = state['json']['data'][state['pos']]['images']['fixed_height_downsampled']['url']
-    if state['img'] == "":
-        state['img'] = state['json']['data'][state['pos']]['images']['fixed_height']['url']
+    state['img'] = state['json']['data'][state['pos']]['images']['fixed_height']['url']
 
 def switch(forward):
     state['lapse'] = 0
@@ -98,7 +96,7 @@ def loop():
                     state['lapse'] = 0
                     switch(True)
         screen.fill(color='black')
-        screen.image(state['img'],max_width=320, max_height=240, scale='fit')
+        screen.image(state['img'] + '.gif',max_width=320, max_height=240, scale='fit')
         drawMenu()
 
 loadurl()
